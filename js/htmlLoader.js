@@ -1,4 +1,4 @@
-export class htmlLoader{
+export class HtmlLoader{
     static loadHTML(elementId, url) {
         fetch(url)
             .then(response => response.text())
@@ -8,6 +8,6 @@ export class htmlLoader{
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-    htmlLoader.loadHTML('header', 'header.html');
-    htmlLoader.loadHTML('footer', 'footer.html');
+    HtmlLoader.loadHTML('header', 'header.html');
+    HtmlLoader.loadHTML('footer', 'footer.html');
 });
