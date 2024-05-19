@@ -2,6 +2,17 @@ import { Estudiante } from "./Estudiante.js";
 
 document.addEventListener('DOMContentLoaded', () => {
 
+    let estudiantes = [];
+
+    // Cargar estudiantes guardados al cargar la página
+    const storedEstudiantes = JSON.parse(sessionStorage.getItem("Estudiantes"));
+    if (storedEstudiantes) {
+        estudiantes = storedEstudiantes;
+        storedEstudiantes.forEach(estudiante => {
+            agregarEstudianteATabla(estudiante);
+        });
+    }
+
     document.getElementById('estudiante-form').addEventListener('submit', (event) => {
         event.preventDefault();
         const documento = document.getElementById('documento').value;
@@ -9,10 +20,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const fechaNacimiento = document.getElementById('fechaNacimiento').value;
         const sexo = document.querySelector('input[name="sexo"]:checked').value;
 
-        let estudiante;
-        estudiante = new Estudiante(documento, nombre, fechaNacimiento, sexo);
+        let estudiante = new Estudiante(documento, nombre, fechaNacimiento, sexo);
         
-        sessionStorage.setItem(documento, JSON.stringify(estudiante));
+        estudiantes.push(estudiante);
+        
+        sessionStorage.setItem("Estudiantes", JSON.stringify(estudiantes));
 
         agregarEstudianteATabla(estudiante);
         
@@ -33,12 +45,5 @@ document.addEventListener('DOMContentLoaded', () => {
         celdaNombre.textContent = estudiante.nombre;
         celdaFechaNacimiento.textContent = estudiante.fechaNacimiento;
         celdaSexo.textContent = estudiante.sexo;
-    }
-
-    // Cargar estudiantes guardados al cargar la página
-    for (let i = 0; i < sessionStorage.length; i++) {
-        const documento = sessionStorage.key(i);
-        const estudiante = JSON.parse(sessionStorage.getItem(documento));
-        agregarEstudianteATabla(estudiante);
     }
 });
