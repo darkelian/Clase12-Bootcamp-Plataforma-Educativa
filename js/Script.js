@@ -1,3 +1,5 @@
+import { Basedatos } from "./Basedatos.js";
+import { Teacher } from "./Teachers.js";
 
 
 document.addEventListener('DOMContentLoaded',()=>{
@@ -14,7 +16,7 @@ document.getElementById('new-form').addEventListener('submit',(event)=>{
     const age = document.getElementById('age').value;
     const subject = document.getElementById('subject').value;
     const experience = document.getElementById('experience').value;
-    const id = document.getElementById('id').value;
+    const id = document.getElementById('identification').value;
 
     let item; 
     if(id){

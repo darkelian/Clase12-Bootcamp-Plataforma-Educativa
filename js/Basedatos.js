@@ -1,4 +1,4 @@
-class Basedatos {
+export class Basedatos {
     constructor(nombres,direccion){
         this.nombres = nombres; 
         this.direccion = direccion; 
