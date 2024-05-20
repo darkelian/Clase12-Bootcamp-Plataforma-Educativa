@@ -11,41 +11,49 @@
             <!-- Content here -->
             <form id="estudiante-form">
                 <legend>Datos del estudiante</legend>
-                <div class="mb-3">
-                    <label for="documento" class="form-label">Documento</label>
-                    <input type="text" class="form-control" id="documento" aria-describedby="documentoHelp" placeholder="Número de documento del estudiante">
+                <div class="mb-3 row">
+                    <label for="documento" class="form-label col-sm-2">Documento</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control col-sm-10" id="documento" aria-describedby="documentoHelp" placeholder="Número de documento del estudiante">
+                    </div>
                 </div>
-                <div class="mb-3">
-                    <label for="nombre" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="nombre" aria-describedby="nombreHelp" placeholder="Nombre del estudiante">
+                <div class="mb-3 row">
+                    <label for="nombre" class="form-label col-sm-2">Nombre</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="nombre" aria-describedby="nombreHelp" placeholder="Nombre del estudiante">
+                    </div>
                 </div>
-                <div class="mb-3">
-                    <label for="fechaNacimiento" class="form-label">Fecha nacimiento</label>
-                    <input type="date" class="form-control" id="fechaNacimiento" aria-describedby="fechaNacimientoHelp" placeholder="Fecha nacimiento estudiante">
+                <div class="mb-3 row">
+                    <label for="fechaNacimiento" class="form-label col-sm-2">Fecha nacimiento</label>
+                    <div class="col-sm-10">
+                        <input type="date" class="form-control" id="fechaNacimiento" aria-describedby="fechaNacimientoHelp" placeholder="Fecha nacimiento estudiante">
+                    </div>
                 </div>
-                <label for="fechaNacimiento" class="form-label">Sexo</label>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="sexo" id="chkMasculino">
-                    <label class="form-check-label" for="chkMasculino">
-                      Masculino
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="sexo" id="chkFemenino" >
-                    <label class="form-check-label" for="chkFemenino">
-                      Femenino
-                    </label>
-                  </div>
+                <div class="mb-3 row">
+                    <label for="fechaNacimiento" class="form-label col-sm-2">Sexo</label>
+                    <div class="col-sm-2 form-check">
+                        <input class="form-check-input" type="radio" name="sexo" id="chkMasculino">
+                        <label class="form-check-label" for="chkMasculino">
+                            Masculino
+                        </label>
+                    </div>
+                    <div class="col-sm-2 form-check">
+                        <input class="form-check-input" type="radio" name="sexo" id="chkFemenino" >
+                        <label class="form-check-label" for="chkFemenino">
+                            Femenino
+                        </label>
+                    </div>
+                </div>
                 <button type="submit" class="btn btn-primary">Enviar</button>
             </form>
-
-            <table class="table" id="estudiantes-table">
-                <thead>
+            <br/>
+            <table class="table table-striped" id="estudiantes-table">
+                <thead class="table-light">
                     <tr>
                         <th scope="col">Documento</th>
                         <th scope="col">Nombre</th>
                         <th scope="col">Fecha nacimiento</th>
-                        <th scope="col">Sexo</th>
+                        <th scope="col">Cursos</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -62,3 +70,6 @@
 
 <script type="module" src="./js/EstudianteScripts.js">
 </script>
+  
+
+  

@@ -2,6 +2,17 @@ import { Estudiante } from "./Estudiante.js";
 
 document.addEventListener('DOMContentLoaded', () => {
 
+    let estudiantes = [];
+
+    // Cargar estudiantes guardados al cargar la página
+    const storedEstudiantes = JSON.parse(rage.getItem("Estudiantes"));
+    if (storedEstudiantes) {
+        estudiantes = storedEstudiantes;
+        storedEstudiantes.forEach(estudiante => {
+            agregarEstudianteATabla(estudiante);
+        });
+    }
+
     document.getElementById('estudiante-form').addEventListener('submit', (event) => {
         event.preventDefault();
         const documento = document.getElementById('documento').value;
@@ -9,10 +20,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const fechaNacimiento = document.getElementById('fechaNacimiento').value;
         const sexo = document.querySelector('input[name="sexo"]:checked').value;
 
-        let estudiante;
-        estudiante = new Estudiante(documento, nombre, fechaNacimiento, sexo);
+        let estudiante = new Estudiante(documento, nombre, fechaNacimiento, sexo);
+
+        estudiantes.push(estudiante);
         
-        sessionStorage.setItem(documento, JSON.stringify(estudiante));
+        localStorage.setItem("Estudiantes", JSON.stringify(estudiantes));
 
         agregarEstudianteATabla(estudiante);
         
@@ -27,18 +39,23 @@ document.addEventListener('DOMContentLoaded', () => {
         const celdaDocumento = nuevaFila.insertCell(0);
         const celdaNombre = nuevaFila.insertCell(1);
         const celdaFechaNacimiento = nuevaFila.insertCell(2);
-        const celdaSexo = nuevaFila.insertCell(3);
+        const celdaCursos = nuevaFila.insertCell(3);
 
         celdaDocumento.textContent = estudiante.documento;
         celdaNombre.textContent = estudiante.nombre;
         celdaFechaNacimiento.textContent = estudiante.fechaNacimiento;
-        celdaSexo.textContent = estudiante.sexo;
+        
+        // Crear el botón y agregarlo a la celda
+        const botonCursos = document.createElement('button');
+        botonCursos.textContent = 'Cursos';
+        botonCursos.classList.add('btn', 'btn-primary', 'btn-sm');
+        botonCursos.setAttribute('data-bs-toggle', 'modal');
+        botonCursos.setAttribute('data-bs-target', '#cursosModal');
+        botonCursos.addEventListener('click', () => {
+            localStorage.setItem("EstudianteActual", JSON.stringify(estudiante));
+            window.location.href = 'estudiante_cursos.html'; // Redirige a la nueva página
+        });
+        celdaCursos.appendChild(botonCursos);
     }
-
-    // Cargar estudiantes guardados al cargar la página
-    for (let i = 0; i < sessionStorage.length; i++) {
-        const documento = sessionStorage.key(i);
-        const estudiante = JSON.parse(sessionStorage.getItem(documento));
-        agregarEstudianteATabla(estudiante);
-    }
+    
 });
