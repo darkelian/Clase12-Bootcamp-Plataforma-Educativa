@@ -1,3 +1,5 @@
+import { Cursos } from "./Cursos.js";
+
 export class SistemaGestionCursos {
     constructor() {
         this.cursos = [];
@@ -7,7 +9,7 @@ export class SistemaGestionCursos {
 
     crearCurso(titulo, descripcion, duracion) {
         const id = this.cursos.length + 1;
-        const curso = new Curso(id, titulo, descripcion, duracion);
+        const curso = new Cursos(id, titulo, descripcion, duracion);
         this.cursos.push(curso);
         return curso;
     }

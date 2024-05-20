@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cursos Online - Estudiantes</title>
 </head>
+
 <body>
     <header></header>
     <div class="container">
@@ -13,28 +15,46 @@
             <legend>Datos del Curso</legend>
             <div class="mb-3">
                 <label for="titulo" class="form-label">Título</label>
-                <input type="text" class="form-control" id="titulo" aria-describedby="tituloHelp" placeholder="Nombre del Curso">
+                <input type="text" class="form-control" id="titulo" aria-describedby="tituloHelp"
+                    placeholder="Nombre del Curso">
             </div>
             <div class="mb-3">
                 <label for="descripcion" class="form-label">Descripción del Curso</label>
-                <input type="text" class="form-control" id="descripcion" aria-describedby="descripcionHelp" placeholder="Descripción">
+                <input type="text" class="form-control" id="descripcion" aria-describedby="descripcionHelp"
+                    placeholder="Descripción">
             </div>
             <div class="mb-3">
                 <label for="duracion" class="form-label">Duración del Curso</label>
-                <input type="number" class="form-control" id="duracion" aria-describedby="duracionHelp" placeholder="Duración">
+                <input type="number" class="form-control" id="duracion" aria-describedby="duracionHelp"
+                    placeholder="Duración">
             </div>
             <button type="submit" class="btn btn-primary">Enviar</button>
         </form>
+        <table class="table table-striped" id="cursos-table">
+            <thead class="table-light">
+                <tr>
+                    <th scope="col">Curso</th>
+                    <th scope="col">Descripción</th>
+                    <th scope="col">Duración</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
     </div>
     <footer></footer>
-    
-    <script src="cursos.js" type="module"></script>
 </body>
+
 </html>
 
 <script type="module">
     import { HtmlLoader } from './js/HtmlLoader.js'
 </script>
 
-<script type="module" src="./js/EstudianteScripts.js">
+<script type="module">
+    import { Cursos } from './js/Cursos.js'
 </script>
+
+<Script type="module">
+    import { SistemaGestionCursos } from './js/SistemaGestionCursos.js'
+</Script>
