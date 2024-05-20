@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let cursos
 
     // Cargar estudiantes guardados al cargar la página
-    const estudianteActual = JSON.parse(sessionStorage.getItem("EstudianteActual"));
+    const estudianteActual = JSON.parse(localStorage.getItem("EstudianteActual"));
 
     if (estudianteActual) {
         estudiante = Object.assign(new Estudiante(), estudianteActual);
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
             HtmlTools.CreateListElement("lista-cursos", curso.nombre)
         });
     }
-    const cursosActuales = JSON.parse(sessionStorage.getItem("Cursos"));
+    const cursosActuales = JSON.parse(localStorage.getItem("Cursos"));
 
     if (cursosActuales) {
         //cursos = Object.assign(new Curso(), cursosActuales);
