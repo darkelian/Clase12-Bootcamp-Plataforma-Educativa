@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let estudiantes = [];
 
     // Cargar estudiantes guardados al cargar la página
-    const storedEstudiantes = JSON.parse(rage.getItem("Estudiantes"));
+    const storedEstudiantes = JSON.parse(localStorage.getItem("Estudiantes"));
     if (storedEstudiantes) {
         estudiantes = storedEstudiantes;
         storedEstudiantes.forEach(estudiante => {
