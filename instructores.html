@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instructores</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+        <form id="new-form" class="formulario">
+            <h2>Resgristro</h2>
+            <label >ID</label>
+            <input type="number" id="identification" required placeholder="ID">
+            <label >Nombres</label>
+            <input type="text" id="names" placeholder="Nombres" required>
+            <label >Apellidos</label>
+            <input type="text" id="lastnames" placeholder="Apellidos" required>
+            <label >Edad</label>
+            <input type="number" id="age" placeholder="Edad" required>
+            <label >Materia Certificado</label>
+            <input type="text" id="subject" placeholder="Materia" required>
+            <label >Experiencia</label>
+            <input type="number" id="experience" placeholder="Años Experiencia">
+            <button type="submit" id="send">Enviar</button>
+        </form>
+       <div id="coleccion">
+            <h2>Profesores</h2>
+            <ul id="lista-coleccion"></ul>
+       </div> 
+
+    <script type="module" src="./Clase12-Bootcamp-Plataforma-Educativa/js/Teachers.js"></script>
+    <script type="module" src="./Clase12-Bootcamp-Plataforma-Educativa/js/Basedatos.js"></script>
+    <script type="module" src="/Clase12-Bootcamp-Plataforma-Educativa/js/Script.js"></script>
+
+
+</body>
+</html>
