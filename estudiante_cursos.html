@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cursos Online - Cursos del estudiante</title>
+    </head>
+    <body>
+        <header></header>
+        <div class="container">            
+            <div class="card">
+                <div class="card-header">
+                    Cursos de estudiante <div id="nombreEstudiante"></div>
+                </div>
+                <div class="card-body">
+                    <ul id="lista-cursos">
+                    </ul>
+                </div>
+            </div>          
+            <div class="card">
+                <div class="card-header">
+                    Agregar cursos
+                </div>
+                <div class="card-body">
+                    <select class="form-select" aria-label="Seleccione curso" id="selCursos"></select>
+                    <button class="btn btn-primary btn-sm">Agregar curso</button>
+                </div>
+            </div>
+        </div>
+        <footer></footer>
+    </body>
+</html>
+
+<!--Permite cargar el contenido general de todas lás páginas-->
+<script type="module">
+    import { HtmlLoader } from './js/HtmlLoader.js'
+</script>
+
+<script type="module" src="./js/EstudianteCursosScripts.js">
+</script>
