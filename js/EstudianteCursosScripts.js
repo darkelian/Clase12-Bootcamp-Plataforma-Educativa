@@ -6,26 +6,78 @@ document.addEventListener('DOMContentLoaded', () => {
     let estudiante
     let cursos
 
-    // Cargar estudiantes guardados al cargar la página
-    const estudianteActual = JSON.parse(localStorage.getItem("EstudianteActual"));
+    CargarComboCursos()
 
-    if (estudianteActual) {
-        estudiante = Object.assign(new Estudiante(), estudianteActual);
+    CargarEstudianteActual()
 
-        HtmlTools.InsertText("nombreEstudiante", estudiante.nombre);
+    document.getElementById('cursos-form').addEventListener('submit', (event) => {
+        event.preventDefault();
 
-        estudiante.cursos.forEach(curso => {
-            HtmlTools.CreateListElement("lista-cursos", curso.nombre)
-        });
+        cursos = ObtenerCursos()
+        const select = document.getElementById("selCursos")
+
+        const cursoSeleccionado = cursos.find(c => c.titulo === select.value)
+
+        estudiante.agregarCurso(cursoSeleccionado)
+        
+        let estudiantes = ObtenerEstudiantes()
+        const index = estudiantes.findIndex(e => e.documento === estudiante.documento);
+
+        // Actualizar el estudiante en la lista
+        if (index !== -1) {
+            estudiantes[index] = estudiante;
+        } else {
+            // Si no se encuentra el estudiante, agregarlo (opcional)
+            estudiantes.push(estudiante);
+        }
+
+        CargarCursosActuales()
+
+        // Guardar la lista actualizada en localStorage
+        localStorage.setItem('Estudiantes', JSON.stringify(estudiantes));
+
+        document.getElementById('cursos-form').reset();
+    });
+
+    function CargarEstudianteActual(){
+        // Cargar estudiantes guardados al cargar la página
+        const estudianteActual = JSON.parse(localStorage.getItem("EstudianteActual"));
+
+        if (estudianteActual) {
+            estudiante = Object.assign(new Estudiante(), estudianteActual);
+
+            HtmlTools.InsertText("nombreEstudiante", estudiante.nombre);
+            
+            CargarCursosActuales()
+        }
+
     }
-    const cursosActuales = JSON.parse(localStorage.getItem("cursos"));
 
-    if (cursosActuales) {
-        //cursos = Object.assign(new Curso(), cursosActuales);
-        cursos = cursosActuales;
+    function ObtenerCursos(){
+        return JSON.parse(localStorage.getItem("cursos"));
+    }
 
-        cursos.forEach(curso => {
-            HtmlTools.CreateSelectOption("selCursos", curso.titulo)
+    function ObtenerEstudiantes(){
+        return JSON.parse(localStorage.getItem("Estudiantes"));
+    }
+
+    function CargarComboCursos(){        
+        const cursosActuales = ObtenerCursos()
+
+        if (cursosActuales) {
+            //cursos = Object.assign(new Curso(), cursosActuales);
+            cursos = cursosActuales;
+
+            cursos.forEach(curso => {
+                HtmlTools.CreateSelectOption("selCursos", curso.titulo)
+            });
+        }    
+    }
+
+    function CargarCursosActuales(){
+        HtmlTools.ClearListElement("lista-cursos")
+        estudiante.cursos.forEach(c => {
+            HtmlTools.CreateListElement("lista-cursos", c.titulo)
         });
     }
 });
