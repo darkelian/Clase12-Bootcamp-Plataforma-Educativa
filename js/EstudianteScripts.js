@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let estudiantes = [];
 
     // Cargar estudiantes guardados al cargar la página
-    const storedEstudiantes = JSON.parse(sessionStorage.getItem("Estudiantes"));
+    const storedEstudiantes = JSON.parse(rage.getItem("Estudiantes"));
     if (storedEstudiantes) {
         estudiantes = storedEstudiantes;
         storedEstudiantes.forEach(estudiante => {
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         estudiantes.push(estudiante);
         
-        sessionStorage.setItem("Estudiantes", JSON.stringify(estudiantes));
+        localStorage.setItem("Estudiantes", JSON.stringify(estudiantes));
 
         agregarEstudianteATabla(estudiante);
         
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
         botonCursos.setAttribute('data-bs-toggle', 'modal');
         botonCursos.setAttribute('data-bs-target', '#cursosModal');
         botonCursos.addEventListener('click', () => {
-            sessionStorage.setItem("EstudianteActual", JSON.stringify(estudiante));
+            localStorage.setItem("EstudianteActual", JSON.stringify(estudiante));
             window.location.href = 'estudiante_cursos.html'; // Redirige a la nueva página
         });
         celdaCursos.appendChild(botonCursos);
