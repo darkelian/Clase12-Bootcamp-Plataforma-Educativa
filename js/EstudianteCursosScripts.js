@@ -18,14 +18,14 @@ document.addEventListener('DOMContentLoaded', () => {
             HtmlTools.CreateListElement("lista-cursos", curso.nombre)
         });
     }
-    const cursosActuales = JSON.parse(localStorage.getItem("Cursos"));
+    const cursosActuales = JSON.parse(localStorage.getItem("cursos"));
 
     if (cursosActuales) {
         //cursos = Object.assign(new Curso(), cursosActuales);
         cursos = cursosActuales;
 
         cursos.forEach(curso => {
-            HtmlTools.CreateSelectOption("selCursos", curso.nombre)
+            HtmlTools.CreateSelectOption("selCursos", curso.titulo)
         });
     }
 });
