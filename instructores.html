@@ -1,38 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instructores</title>
-    <link rel="stylesheet" href="/style.css">
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cursos Online - Plantilla de páginas web</title>
+    </head>
+    <body>
+        <header></header>
+        <div class="container">
+            <!-- Incluir el contenido de la página aquí -->
 
         <form id="new-form" class="formulario">
-            <h2>Resgristro</h2>
+            <h2>Registro</h2>
             <label >ID</label>
-            <input type="number" id="identification" required placeholder="ID">
+            <input class="form-control" type="number" id="identification" required placeholder="ID">
             <label >Nombres</label>
-            <input type="text" id="names" placeholder="Nombres" required>
+            <input class="form-control" type="text" id="names" placeholder="Nombres" required>
             <label >Apellidos</label>
-            <input type="text" id="lastnames" placeholder="Apellidos" required>
+            <input class="form-control" type="text" id="lastnames" placeholder="Apellidos" required>
             <label >Edad</label>
-            <input type="number" id="age" placeholder="Edad" required>
+            <input class="form-control" type="number" id="age" placeholder="Edad" required>
             <label >Materia Certificado</label>
-            <input type="text" id="subject" placeholder="Materia" required>
+            <input class="form-control" type="text" id="subject" placeholder="Materia" required>
             <label >Experiencia</label>
-            <input type="number" id="experience" placeholder="Años Experiencia">
-            <button type="submit" id="send">Enviar</button>
+            <input class="form-control" type="number" id="experience" placeholder="Años Experiencia">
+            <button class="btn btn-primary" type="submit" id="send">Enviar</button>
         </form>
-       <div id="coleccion">
+        <div class="d-flex justify-content-center"">
+       <div class="w-50 p-3 h-50 p-3 mb-2 bg-secondary text-white mt-4 d-flex justify-content-center" id="coleccion">
             <h2>Profesores</h2>
-            <ul id="lista-coleccion"></ul>
+            <ul class="d-flex justify-content-center"   id="lista-coleccion"></ul>
        </div> 
+        </div>
+</div>
 
-    <script type="module" src="./Clase12-Bootcamp-Plataforma-Educativa/js/Teachers.js"></script>
-    <script type="module" src="./Clase12-Bootcamp-Plataforma-Educativa/js/Basedatos.js"></script>
-    <script type="module" src="/Clase12-Bootcamp-Plataforma-Educativa/js/Script.js"></script>
-
-
+</div>
+<footer></footer>
 </body>
 </html>
+<!--Permite cargar el contenido general de todas lás páginas-->
+<script type="module">
+import { HtmlLoader } from './js/HtmlLoader.js'
+</script>
+
+<script type="module" src="./js/Teachers.js"></script>
+<script type="module" src="./js/Basedatos.js"></script>
+<script type="module" src="./js/Script.js"></script>
