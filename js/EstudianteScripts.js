@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const sexo = document.querySelector('input[name="sexo"]:checked').value;
 
         let estudiante = new Estudiante(documento, nombre, fechaNacimiento, sexo);
-        
+
         estudiantes.push(estudiante);
         
         sessionStorage.setItem("Estudiantes", JSON.stringify(estudiantes));
@@ -39,11 +39,23 @@ document.addEventListener('DOMContentLoaded', () => {
         const celdaDocumento = nuevaFila.insertCell(0);
         const celdaNombre = nuevaFila.insertCell(1);
         const celdaFechaNacimiento = nuevaFila.insertCell(2);
-        const celdaSexo = nuevaFila.insertCell(3);
+        const celdaCursos = nuevaFila.insertCell(3);
 
         celdaDocumento.textContent = estudiante.documento;
         celdaNombre.textContent = estudiante.nombre;
         celdaFechaNacimiento.textContent = estudiante.fechaNacimiento;
-        celdaSexo.textContent = estudiante.sexo;
+        
+        // Crear el botón y agregarlo a la celda
+        const botonCursos = document.createElement('button');
+        botonCursos.textContent = 'Cursos';
+        botonCursos.classList.add('btn', 'btn-primary', 'btn-sm');
+        botonCursos.setAttribute('data-bs-toggle', 'modal');
+        botonCursos.setAttribute('data-bs-target', '#cursosModal');
+        botonCursos.addEventListener('click', () => {
+            sessionStorage.setItem("EstudianteActual", JSON.stringify(estudiante));
+            window.location.href = 'estudiante_cursos.html'; // Redirige a la nueva página
+        });
+        celdaCursos.appendChild(botonCursos);
     }
+    
 });

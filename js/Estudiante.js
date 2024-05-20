@@ -9,8 +9,6 @@ export class Estudiante{
     
     agregarCurso(curso){
         this.cursos.push(curso)
-    }
-
-    
+    }    
 
 }
