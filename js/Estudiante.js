@@ -8,7 +8,13 @@ export class Estudiante{
     }
     
     agregarCurso(curso){
-        this.cursos.push(curso)
+        // Verificar si el curso ya existe en la lista de cursos del estudiante
+        const cursoExistente = this.cursos.some(c => c.titulo === curso.titulo);
+        
+        if (!cursoExistente) {
+            // Si el curso no existe, agregarlo a la lista de cursos del estudiante
+            this.cursos.push(curso);
+        }
     }    
 
 }

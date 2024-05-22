@@ -9,11 +9,17 @@ export class HtmlTools{
         var elem = document.getElementById(element)
         elem.innerHTML = texto
     }
+    
     static CreateListElement(list, text){     
         var list = document.getElementById(list)   
         var listElem = document.createElement("li")
         listElem.innerHTML = text
         list.appendChild(listElem)
+    }
+    
+    static ClearListElement(list){     
+        var list = document.getElementById(list)   
+        list.innerHTML = ""
     }
     
     static CreateSelectOption(selectId, optionText){

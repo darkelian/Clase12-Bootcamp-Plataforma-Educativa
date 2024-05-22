@@ -1,4 +1,4 @@
-class Teacher {
+export class Teacher {
     constructor(nombres,apellidos,edad,materia,experiencia){
         this.nombres = nombres;
         this.apellidos = apellidos; 
